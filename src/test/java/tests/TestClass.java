@@ -15,7 +15,7 @@ import pages.StartPage;
 import service.AuthenticationService;
 import service.OrderClothesService;
 
-import static org.testng.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestClass extends BaseTest {
 
