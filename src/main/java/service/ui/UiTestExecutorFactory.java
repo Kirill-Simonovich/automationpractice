@@ -2,7 +2,7 @@ package service.ui;
 
 import java.util.Optional;
 
-import com.spanning.automation.frontend.service.ui.UiTestExecutor.UiExecutorType;
+import service.ui.UiTestExecutor.UiExecutorType;
 
 public class UiTestExecutorFactory {
 

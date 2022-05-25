@@ -13,10 +13,7 @@ import javax.imageio.ImageIO;
 
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
-import com.spanning.automation.common.enums.RunType;
-import com.spanning.automation.common.model.config.TestConfig;
-import com.spanning.automation.common.utils.TestConfigSettings;
-import com.spanning.automation.frontend.enums.Feature;
+
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import ru.yandex.qatools.ashot.AShot;
@@ -25,14 +22,14 @@ import ru.yandex.qatools.ashot.comparison.ImageDiff;
 import ru.yandex.qatools.ashot.comparison.ImageDiffer;
 import ru.yandex.qatools.ashot.coordinates.WebDriverCoordsProvider;
 
+import static com.codeborne.selenide.Browsers.CHROME;
 import static io.qameta.allure.Allure.addAttachment;
 
 public class CompareUiExecutor implements UiTestExecutor {
 
-  private static final String BROWSER = TestConfigSettings.getInstance().getTestConfig().getBrowser().toLowerCase();
+  private static final String BROWSER = CHROME;
   private static final String TARGET = "target/";
 
-  public static final TestConfig CONFIG = TestConfigSettings.getInstance().getTestConfig();
 
   @Override
   @Step("Take a screenshot on {feature}")
@@ -100,7 +97,7 @@ public class CompareUiExecutor implements UiTestExecutor {
     final String diffImageName = baseName + "_diff_" + LocalDateTime.now();
     final String actualImageName = baseName + "_actual_" + LocalDateTime.now();
     final String expectedImageName = baseName + "_expected_" + LocalDateTime.now();
-    if (RunType.LOCAL.getValue().equalsIgnoreCase(CONFIG.getRunType())) {
+    if (true) {
       ImageIO.write(diff.getMarkedImage(), FORMAT_NAME, new File(TARGET + diffImageName + "." + FORMAT_NAME));
       ImageIO.write(actualScreenshot.getImage(), FORMAT_NAME, new File(TARGET + actualImageName + "." + FORMAT_NAME));
       ImageIO.write(
