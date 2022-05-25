@@ -4,7 +4,7 @@ import static com.codeborne.selenide.Browsers.CHROME;
 
 public enum Feature {
 
-  CUSTOMER_ROW("/common_elements/customer_row.tiff");
+  EXAMPLE("/example.tiff");
 
 
   private static final String BASE_SCREENSHOT_PATH = "src/test/resources/expected-ui/";
